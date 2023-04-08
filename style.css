@@ -17,6 +17,7 @@ body {
 .container-inner {
   display: grid;
   grid-template-rows: 20% 80%;
+  grid-template-columns: 80% 20%;
   height: 65vh;
   width: 75vw;
   margin: 0;
@@ -38,7 +39,7 @@ body {
   bottom: 0;
   border-radius: 50px;
   border: 20px solid transparent;
-  background: linear-gradient(75deg, rgba(34, 193, 195, 1) 0%, rgba(170, 189, 102, 1) 62%, rgba(189, 116, 108, 1) 62%, rgba(253, 187, 45, 1) 100%);
+  background: linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%);
   background-size: 500% 500%;
   animation: gradient 10s ease infinite;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
@@ -62,6 +63,7 @@ body {
 }
 
 .grid-item-header {
+  grid-column: 1 / 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -123,6 +125,8 @@ i {
 }
 
 .grid-item-main {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,25 +135,31 @@ i {
 
 .content {
   display: grid;
-  grid-template-columns: 80% 20%;
+  /* grid-template-columns: 80% 20%; */
   /* height: 65vh;
   width: 75vw; */
   margin: 0;
 }
 
-.side-content-grid-item {
+.grid-item-side {
+  height: 75%;
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   margin-left: 20px;
   font-size: 30px;
+}
+
+.selection {
   padding: 20px;
   padding-left: 30px;
 }
 
 .gradient-border-mask-side {
   position: relative;
-  border-bottom: 0px;
-  border-right: 0px;
   animation: gradient 15s ease infinite;
 }
 
@@ -171,7 +181,7 @@ i {
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
   /* https: //stackoverflow.com/questions/42689380/css-cut-half-top-right-border-and-half-right-top-border */
-  clip-path: polygon(0 0, 50% 0, 50% 75%, 0 75%);
+  clip-path: polygon(0 0, 75% 0, 75% 75%, 0 75%);
 }
 
 @keyframes gradient {
