@@ -1,18 +1,9 @@
 body {
   /* set a height so the container takes up the full viewport */
-  background: rgb(33, 33, 33);
+  background: rgb(28, 28, 28);
   font-family: 'Sora', monospace;
   margin: 0;
-}
-
-h1,
-h3,
-p {
   color: white;
-}
-
-h3 {
-  margin: 0;
 }
 
 .container {
@@ -26,12 +17,47 @@ h3 {
 .container-inner {
   display: grid;
   grid-template-rows: 20% 80%;
-  height: 85vh;
-  width: 85vw;
+  height: 65vh;
+  width: 75vw;
   margin: 0;
-  border-style: solid;
-  border-width: 20px;
-  border-image: linear-gradient(to right, gold, rgb(255, 235, 106)) 1;
+}
+
+/* https: //nikitahl.com/gradient-border-css THE GOAT */
+.gradient-border-mask {
+  position: relative;
+  padding: 10vh;
+  animation: gradient 15s ease infinite;
+}
+
+.gradient-border-mask::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px;
+  border: 20px solid transparent;
+  background: linear-gradient(75deg, rgb(0, 255, 21) 0%, rgb(0, 153, 255) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgb(255, 0, 0) 60%, rgb(255, 0, 238) 80%, rgba(255, 215, 0, 1) 100%);
+  background-size: 1000% 1000%;
+  animation: gradient 20s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 10% 50%;
+  }
+
+  50% {
+    background-position: 90% 50%;
+  }
+
+  100% {
+    background-position: 10% 50%;
+  }
 }
 
 .grid-item-header {
@@ -57,7 +83,7 @@ i {
   align-items: center;
   position: relative;
   background: rgb(12, 0, 255);
-  background: linear-gradient(180deg, rgba(12, 0, 255, 1) 0%, rgba(255, 200, 0, 0) 0%);
+  background: linear-gradient(180deg, gold 0%, rgba(255, 200, 0, 0) 0%);
   background-position: 0 -500px;
   background-repeat: no-repeat;
   animation: ih-in 3s forwards;
@@ -69,13 +95,13 @@ i {
 
 @keyframes ih-in {
   from {
-    background: linear-gradient(180deg, rgba(12, 0, 255, 1) 0%, rgba(255, 200, 0, 0) 100%);
+    background: linear-gradient(180deg, gold 0%, rgba(255, 200, 0, 0) 100%);
     background-position: 0 0;
     background-repeat: no-repeat;
   }
 
   to {
-    background: linear-gradient(180deg, rgba(12, 0, 255, 1) 0%, rgba(255, 200, 0, 0) 0%);
+    background: linear-gradient(180deg, gold 0%, rgba(255, 200, 0, 0) 0%);
     background-position: 0 -500px;
     background-repeat: no-repeat;
   }
@@ -83,13 +109,13 @@ i {
 
 @keyframes icon-highlight {
   0% {
-    background: linear-gradient(180deg, rgba(12, 0, 255, 1) 0%, rgba(255, 200, 0, 0) 0%);
+    background: linear-gradient(180deg, gold 0%, rgba(255, 200, 0, 0) 0%);
     background-position: 0 -500px;
     background-repeat: no-repeat;
   }
 
   100% {
-    background: linear-gradient(180deg, rgba(12, 0, 255, 1) 0%, rgba(255, 200, 0, 0) 100%);
+    background: linear-gradient(180deg, gold 0%, rgba(255, 200, 0, 0) 100%);
     background-position: 0 0;
     background-repeat: no-repeat;
   }
@@ -172,74 +198,4 @@ hr {
 .imgtest {
   width: 100%;
   height: 50%;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color: aqua;
-}
-
-/* https: //nikitahl.com/gradient-border-css THE GOAT */
-.gradient-border {
-  padding: 10px 20px;
-  border: 6px solid;
-  background: transparent;
-  border-image: linear-gradient(45deg, purple, orange) 1;
-
-  border-radius: 5px;
-}
-
-.gradient-border-pseudo {
-  position: relative;
-  padding: 10px 20px;
-  background: #fff;
-  margin: 5px;
-
-  border-radius: 5px;
-}
-
-.gradient-border-pseudo::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-
-  margin: -5px;
-  border-radius: inherit;
-  background-image: linear-gradient(45deg, purple, orange);
-}
-
-.gradient-border-bg {
-  background: linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(45deg, purple, orange) border-box;
-  border: 5px solid transparent;
-  border-radius: 50px;
-  padding: 10px 20px;
-}
-
-.gradient-border-mask {
-  position: relative;
-  padding: 15px 20px;
-}
-
-.gradient-border-mask::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50px;
-  border: 5px solid transparent;
-  background: linear-gradient(45deg, purple, orange) border-box;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-}
-
-body {
-  background: black;
 }
