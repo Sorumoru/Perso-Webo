@@ -38,12 +38,13 @@ body {
   bottom: 0;
   border-radius: 50px;
   border: 20px solid transparent;
-  background: linear-gradient(75deg, rgb(0, 255, 21) 0%, rgb(0, 153, 255) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgb(255, 0, 0) 60%, rgb(255, 0, 238) 80%, rgba(255, 215, 0, 1) 100%);
-  background-size: 1000% 1000%;
-  animation: gradient 20s ease infinite;
+  background: linear-gradient(75deg, rgba(34, 193, 195, 1) 0%, rgba(170, 189, 102, 1) 62%, rgba(189, 116, 108, 1) 62%, rgba(253, 187, 45, 1) 100%);
+  background-size: 500% 500%;
+  animation: gradient 10s ease infinite;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
+  /* clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); */
 }
 
 @keyframes gradient {
@@ -125,15 +126,76 @@ i {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* width: max-content; */
 }
 
 .content {
-  text-align: center;
-  align-items: center;
-  align-content: center;
-  margin-bottom: 10%;
+  display: grid;
+  grid-template-columns: 80% 20%;
+  /* height: 65vh;
+  width: 75vw; */
+  margin: 0;
 }
 
+.side-content-grid-item {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  font-size: 30px;
+  padding: 20px;
+  padding-left: 30px;
+}
+
+.gradient-border-mask-side {
+  position: relative;
+  border-bottom: 0px;
+  border-right: 0px;
+  animation: gradient 15s ease infinite;
+}
+
+.gradient-border-mask-side::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 25px;
+  border: 5px solid transparent;
+  /* border-bottom: 0px;
+  border-right: 0px; */
+  background: linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%);
+  background-size: 500% 500%;
+  animation: gradient 10s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  /* https: //stackoverflow.com/questions/42689380/css-cut-half-top-right-border-and-half-right-top-border */
+  clip-path: polygon(0 0, 50% 0, 50% 75%, 0 75%);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 10% 50%;
+  }
+
+  50% {
+    background-position: 90% 50%;
+  }
+
+  100% {
+    background-position: 10% 50%;
+  }
+}
+
+.welcome {
+  font-size: 100px;
+  margin: 0;
+}
+
+.description {
+  margin: 0;
+}
 
 .short-fade {
   opacity: 0;
