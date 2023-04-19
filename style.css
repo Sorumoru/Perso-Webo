@@ -120,6 +120,21 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 50px;
+
+  /** added because for some reason this div is lower than bg border */
+  z-index: 1;
+}
+
+.main-icon>div {
+  cursor: pointer;
+}
+
+.main-icon>div>i {
+  color: #2e2e2e;
+}
+
+.main-icon>div:hover>i {
+  color: #fff;
 }
 
 .grid-item-side {
@@ -173,7 +188,6 @@ body {
 }
 
 .line {
-  width: auto;
   height: 3px;
   border: 0;
   margin: 5px 0 0 0;
@@ -188,6 +202,9 @@ body {
   width: 100%;
 }
 
+.project-item-selected {
+  width: 100%;
+}
 
 /** KEYFRAMES **/
 
