@@ -53,6 +53,7 @@ body {
   background: var(--border-theme);
   background-size: 500% 500%;
   animation: gradient 10s ease infinite;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
@@ -165,6 +166,7 @@ body {
   background: var(--border-theme);
   background-size: 500% 500%;
   animation: gradient 10s ease infinite;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
