@@ -9,6 +9,17 @@ body {
   color: white;
 }
 
+.short-fade {
+  opacity: 0;
+  animation: fade-in 2s ease forwards;
+}
+
+
+.fade {
+  opacity: 0;
+  animation: fade-in 5s ease forwards;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -50,18 +61,13 @@ body {
 .grid-item-header {
   grid-column: 1 / 2;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-}
-
-.socials {
-  display: flex;
   flex-direction: row;
+  align-items: center;
   height: 100%;
 }
 
-.socials>div {
+.grid-item-header>div {
+  padding: 0 20px 0 20px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -73,12 +79,14 @@ body {
   animation: ih-in 3s forwards;
 }
 
-.socials>div:hover {
-  animation: icon-highlight 0.2s forwards;
+.grid-item-header>div>a>i {
+  color: #2e2e2e;
+  font-size: 40px;
+  transition: color 0.5s ease;
 }
 
-.socials>div>a>i {
-  padding: 0 20px 0 20px;
+.grid-item-header>div>a>i:hover {
+  color: #fff;
 }
 
 .grid-item-main {
@@ -91,6 +99,15 @@ body {
 
 .content {
   /** TODO */
+}
+
+.welcome {
+  font-size: 70px;
+  margin: 0;
+}
+
+.description {
+  margin: 0;
 }
 
 .main-icon {
@@ -113,18 +130,36 @@ body {
   margin-left: 20px;
 }
 
+.gradient-border-mask-side {
+  position: relative;
+}
+
+.gradient-border-mask-side::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  border: 3px solid transparent;
+  background: var(--border-theme);
+  background-size: 500% 500%;
+  animation: gradient 10s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  clip-path: polygon(0 0, 40% 0, 40% 75%, 0 75%);
+  transition: clip-path 0.5s ease;
+}
+
+.gradient-border-mask-side:hover::before {
+  clip-path: polygon(0 0, 90% 0, 90% 40%, 0 40%);
+}
+
 .selection {
   padding: 20px;
   padding-left: 30px;
-  /* background-color: pink; */
-}
-
-.bbtest {
-  /* background-color: brown; */
-  /* position: relative; */
-  /* cursor: pointer; */
-  padding: 0 0 5px 0;
-  margin: 0 0 20px 0;
 }
 
 .project-item {
@@ -139,63 +174,15 @@ body {
   height: 3px;
   border: 0;
   margin: 5px 0 0 0;
-  background: linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%);
+  background: var(--border-theme);
   background-size: 500% 500%;
   animation: gradient 10s ease infinite;
   width: 50%;
   transition: width 0.5s ease;
 }
 
-.project-item:hover .line {
+.project-item:hover>.line {
   width: 100%;
-}
-
-.gradient-border-mask-side {
-  position: relative;
-}
-
-.gradient-border-mask-side::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 15px;
-  border: 3px solid transparent;
-  background: linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%);
-  background-size: 500% 500%;
-  animation: gradient 10s ease infinite;
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-  clip-path: polygon(0 0, 40% 0, 40% 75%, 0 75%);
-  transition: clip-path 0.5s ease;
-}
-
-
-.gradient-border-mask-side:hover::before {
-  clip-path: polygon(0 0, 90% 0, 90% 40%, 0 40%);
-}
-
-.welcome {
-  font-size: 100px;
-  margin: 0;
-}
-
-.description {
-  margin: 0;
-}
-
-.short-fade {
-  opacity: 0;
-  animation: fade-in 2s ease forwards;
-}
-
-
-.fade {
-  opacity: 0;
-  animation: fade-in 5s ease forwards;
 }
 
 
@@ -222,33 +209,5 @@ body {
 
   to {
     opacity: 1;
-  }
-}
-
-@keyframes ih-in {
-  from {
-    background: linear-gradient(180deg, gold 0%, rgba(255, 200, 0, 0) 100%);
-    background-position: 0 0;
-    background-repeat: no-repeat;
-  }
-
-  to {
-    background: linear-gradient(180deg, gold 0%, rgba(255, 200, 0, 0) 0%);
-    background-position: 0 -500px;
-    background-repeat: no-repeat;
-  }
-}
-
-@keyframes icon-highlight {
-  0% {
-    background: linear-gradient(180deg, gold 0%, rgba(255, 200, 0, 0) 0%);
-    background-position: 0 -500px;
-    background-repeat: no-repeat;
-  }
-
-  100% {
-    background: linear-gradient(180deg, gold 0%, rgba(255, 200, 0, 0) 100%);
-    background-position: 0 0;
-    background-repeat: no-repeat;
   }
 }
