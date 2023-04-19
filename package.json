@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Sorumoru/Perso-Webo/issues"
   },
-  "homepage": "https://github.com/Sorumoru/Perso-Webo#readme"
+  "homepage": "https://github.com/Sorumoru/Perso-Webo#readme",
+  "dependencies": {
+    "firebase": "^9.20.0"
+  }
 }
