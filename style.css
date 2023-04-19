@@ -131,6 +131,7 @@ body {
 
 .main-icon>div>i {
   color: #2e2e2e;
+  transition: color 0.5s ease;
 }
 
 .main-icon>div:hover>i {
