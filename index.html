@@ -40,7 +40,7 @@
       </header>
 
       <div class="grid-item-main">
-        <div class="content">
+        <div id="content-item-0" class="content">
           <div class="content-grid-item">
             <h1 class="short-fade welcome">Kamusta!</h1>
             <p class="fade description">
@@ -54,7 +54,7 @@
           </div>
         </div>
 
-        <div class="content">
+        <div id="content-item-1" class="content" style="display: none">
           <div class="content-grid-item">
             <h1 class="short-fade welcome">UX Was Here</h1>
             <p class="fade description">
@@ -64,7 +64,7 @@
           </div>
         </div>
 
-        <div class="content">
+        <div id="content-item-2" class="content" style="display: none">
           <div class="content-grid-item">
             <h1 class="short-fade welcome">Pugna Ultima</h1>
             <p class="fade description">
@@ -74,7 +74,7 @@
           </div>
         </div>
 
-        <div class="content">
+        <div id="content-item-3" class="content" style="display: none">
           <div class="content-grid-item">
             <h1 class="short-fade welcome">More Coming Soon!</h1>
             <p class="fade description">
@@ -92,18 +92,18 @@
 
       <div class="fade grid-item-side">
         <div>
-          <h1>Works</h1>
+          <h1 onclick="openContent('content-item-0')">Works</h1>
           <div class="selection gradient-border-mask-side">
 
-            <div id="project-item-0" class="project-item">
+            <div class="project-item" onclick="openContent('content-item-1')">
               UX Was Here
               <hr class="line">
             </div>
-            <div id="project-item-1" class="project-item">
+            <div class="project-item" onclick="openContent('content-item-2')">
               Pugna Ultima
               <hr class="line">
             </div>
-            <div id="project-item-2" class="project-item">
+            <div class="project-item" onclick="openContent('content-item-3')">
               ...
               <hr class="line">
             </div>
