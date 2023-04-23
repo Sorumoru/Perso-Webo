@@ -1,3 +1,61 @@
+/** KEYFRAMES **/
+@keyframes gradient {
+  0% {
+    background-position: 10% 50%;
+  }
+
+  50% {
+    background-position: 90% 50%;
+  }
+
+  100% {
+    background-position: 10% 50%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes gradient-card-animation {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  25% {
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 40% 100%);
+  }
+
+  50% {
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 60% 100%);
+  }
+
+  75% {
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 80% 100%);
+  }
+
+  100% {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+  }
+}
+
+@keyframes gradient-card-index {
+  from {
+    z-index: 10;
+  }
+
+  to {
+    z-index: 0;
+  }
+}
+
+/** STYLES **/
 :root {
   --border-theme: linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%);
 }
@@ -48,7 +106,7 @@ body {
   background: var(--border-theme);
   background-size: 500% 500%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  animation: gradient 10s ease infinite, gradient-card-animation 2s linear 2s forwards;
+  animation: gradient 10s ease infinite, gradient-card-animation 1.5s linear 0.5s forwards;
   mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   /* -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); */
   -webkit-mask-composite: destination-out;
@@ -235,62 +293,4 @@ body {
 
 .project-item-selected {
   width: 100%;
-}
-
-/** KEYFRAMES **/
-
-@keyframes gradient {
-  0% {
-    background-position: 10% 50%;
-  }
-
-  50% {
-    background-position: 90% 50%;
-  }
-
-  100% {
-    background-position: 10% 50%;
-  }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes gradient-card-animation {
-  0% {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
-
-  25% {
-    clip-path: polygon(20% 0, 100% 0, 100% 100%, 40% 100%);
-  }
-
-  50% {
-    clip-path: polygon(40% 0, 100% 0, 100% 100%, 60% 100%);
-  }
-
-  75% {
-    clip-path: polygon(60% 0, 100% 0, 100% 100%, 80% 100%);
-  }
-
-  100% {
-    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-  }
-}
-
-@keyframes gradient-card-index {
-  from {
-    z-index: 10;
-  }
-
-  to {
-    z-index: 0;
-  }
 }
