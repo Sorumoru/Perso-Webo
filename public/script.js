@@ -14,3 +14,7 @@ function widenLine(itemLine) {
   }
   document.getElementById(itemLine).classList.add("project-item-selected")
 }
+
+function changeTheme() {
+  
+}
