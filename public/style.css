@@ -77,120 +77,170 @@ body {
   animation: fade-in 5s ease forwards;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+}
+
+/* TODO: not used at the moment */
+.gradient-card {
+  position: absolute;
+  padding: 10vh;
+  height: 65vh;
+  width: 75vw;
+  z-index: 10;
+  animation: gradient-card-index 2s linear 2s forwards;
+}
+
+/* TODO: not used at the moment */
+.gradient-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px;
+  border: 10px solid transparent;
+  background: var(--border-theme);
+  background-size: 500% 500%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  animation: gradient 10s ease infinite, gradient-card-animation 1.5s linear 0.5s forwards;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  /* -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); */
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.container-inner {
+  display: grid;
+  grid-template-rows: 20% 80%;
+  grid-template-columns: 80% 20%;
+  height: 65vh;
+  width: 75vw;
+}
+
+/* https://nikitahl.com/gradient-border-css THE GOAT */
+.gradient-border-mask {
+  position: relative;
+  padding: 5vw;
+}
+
+.gradient-border-mask::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px;
+  border: 10px solid transparent;
+  background: var(--border-theme);
+  background-size: 500% 500%;
+  animation: gradient 10s ease infinite;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.header {
+  grid-column: 1 / 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header>div {
+  padding: 0 20px 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: rgb(12, 0, 255);
+  background: var(--border-theme);
+  background-position: 0 -500px;
+  background-repeat: no-repeat;
+  animation: ih-in 3s forwards;
+}
+
+.header>div>a>i {
+  color: #2e2e2e;
+  font-size: 40px;
+  transition: color 0.5s ease;
+}
+
+.header>div>a>i:hover {
+  color: #fff;
+}
 
 @media screen and (min-width: 320px) and (max-width: 480px) {
 
   .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* height: 100vh; */
-    position: relative;
+    height: 0%;
   }
 
   .container-inner {
     display: flex;
     flex-direction: column;
-    grid-template-rows: 20% 80%;
-    grid-template-columns: 80% 20%;
-    /* height: 65vh;
-    width: 75vw; */
-    /* padding: 0%; */
+    height: 100%;
+    width: 100%;
   }
 
   .gradient-border-mask {
-    position: relative;
-    padding: 10vh;
+    padding: 10vw;
   }
-  
+
   .gradient-border-mask::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50px;
-    border: 10px solid transparent;
-    background: var(--border-theme);
-    background-size: 500% 500%;
-    animation: gradient 10s ease infinite;
-    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
+    border-radius: 25px;
   }
 
   .header {
     order: 3;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    justify-content: space-between;
   }
-  
-  .header>div {
-    padding: 0 20px 0 20px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
-    background: rgb(12, 0, 255);
-    background: var(--border-theme);
-    background-position: 0 -500px;
-    background-repeat: no-repeat;
-    animation: ih-in 3s forwards;
-  }
-  
-  .header>div>a>i {
-    color: #2e2e2e;
-    font-size: 40px;
-    transition: color 0.5s ease;
-  }
-  
-  .header>div>a>i:hover {
-    color: #fff;
-  }
-  
+
   .main {
     order: 1;
     height: 300px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
   }
-  
-  .content {
-  }
-  
-  .welcome {
-  }
-  
-  .description {
-  }
-  
+
+  .content {}
+
+  .welcome {}
+
+  .description {}
+
   .logo-icon {
     order: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 30px;
+    padding: 10px 0 10px 0;
     /** added because for some reason this div is lower than bg border */
     z-index: 1;
   }
-  
+
   .logo-icon>div {
     cursor: pointer;
   }
-  
+
   .logo-icon>div>i {
     color: #2e2e2e;
     transition: color 0.5s ease;
   }
-  
+
   .logo-icon>div:hover>i {
     color: #fff;
   }
-  
+
   .side {
     order: 2;
     display: flex;
@@ -199,11 +249,11 @@ body {
     align-items: center;
     width: 50%;
   }
-  
+
   .gradient-border-mask-side {
     position: relative;
   }
-  
+
   .gradient-border-mask-side::before {
     content: "";
     position: absolute;
@@ -223,23 +273,23 @@ body {
     clip-path: polygon(0 0, 40% 0, 40% 75%, 0 75%);
     transition: clip-path 0.5s ease;
   }
-  
+
   .gradient-border-mask-side:hover::before {
     clip-path: polygon(0 0, 90% 0, 90% 40%, 0 40%);
   }
-  
+
   .selection {
     padding: 20px;
     padding-left: 30px;
   }
-  
+
   .project-item {
     position: relative;
     cursor: pointer;
     padding: 0 0 5px 0;
     margin: 0 0 20px 0;
   }
-  
+
   .line {
     height: 3px;
     border: 0;
@@ -250,126 +300,23 @@ body {
     width: 50%;
     transition: width 0.5s ease;
   }
-  
+
   .project-item:hover>.line {
     width: 100%;
   }
-  
+
   .project-item-selected {
     width: 100%;
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
+@media screen and (min-width: 481px) and (max-width: 768px) {}
 
-}
+@media screen and (min-width: 769px) and (max-width: 1024px) {}
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-
-}
 @media screen and (min-width: 1201px) {
-  
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    position: relative;
-  }
-  
-  /* TODO: not used at the moment */
-  .gradient-card {
-    position: absolute;
-    padding: 10vh;
-    height: 65vh;
-    width: 75vw;
-    z-index: 10;
-    animation: gradient-card-index 2s linear 2s forwards;
-  }
-  
-  /* TODO: not used at the moment */
-  .gradient-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50px;
-    border: 10px solid transparent;
-    background: var(--border-theme);
-    background-size: 500% 500%;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    animation: gradient 10s ease infinite, gradient-card-animation 1.5s linear 0.5s forwards;
-    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    /* -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); */
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-  }
-  
-  .container-inner {
-    display: grid;
-    grid-template-rows: 20% 80%;
-    grid-template-columns: 80% 20%;
-    height: 65vh;
-    width: 75vw;
-  }
-  
-  /* https://nikitahl.com/gradient-border-css THE GOAT */
-  .gradient-border-mask {
-    position: relative;
-    padding: 10vh;
-  }
-  
-  .gradient-border-mask::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50px;
-    border: 10px solid transparent;
-    background: var(--border-theme);
-    background-size: 500% 500%;
-    animation: gradient 10s ease infinite;
-    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-  }
-  
-  .header {
-    grid-column: 1 / 2;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 100%;
-  }
-  
-  .header>div {
-    padding: 0 20px 0 20px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
-    background: rgb(12, 0, 255);
-    background: var(--border-theme);
-    background-position: 0 -500px;
-    background-repeat: no-repeat;
-    animation: ih-in 3s forwards;
-  }
-  
-  .header>div>a>i {
-    color: #2e2e2e;
-    font-size: 40px;
-    transition: color 0.5s ease;
-  }
-  
-  .header>div>a>i:hover {
-    color: #fff;
-  }
-  
+
+
   .main {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
@@ -378,22 +325,22 @@ body {
     align-items: center;
     position: relative;
   }
-  
+
   .content {
     position: absolute;
     top: 35%;
     left: 0;
   }
-  
+
   .welcome {
     font-size: 70px;
     margin: 0;
   }
-  
+
   .description {
     margin: 0;
   }
-  
+
   .logo-icon {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
@@ -401,24 +348,24 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 50px;
-  
+
     /** added because for some reason this div is lower than bg border */
     z-index: 1;
   }
-  
+
   .logo-icon>div {
     cursor: pointer;
   }
-  
+
   .logo-icon>div>i {
     color: #2e2e2e;
     transition: color 0.5s ease;
   }
-  
+
   .logo-icon>div:hover>i {
     color: #fff;
   }
-  
+
   .side {
     height: 75%;
     grid-column: 2 / 3;
@@ -429,11 +376,11 @@ body {
     align-items: center;
     margin-left: 20px;
   }
-  
+
   .gradient-border-mask-side {
     position: relative;
   }
-  
+
   .gradient-border-mask-side::before {
     content: "";
     position: absolute;
@@ -453,23 +400,23 @@ body {
     clip-path: polygon(0 0, 40% 0, 40% 75%, 0 75%);
     transition: clip-path 0.5s ease;
   }
-  
+
   .gradient-border-mask-side:hover::before {
     clip-path: polygon(0 0, 90% 0, 90% 40%, 0 40%);
   }
-  
+
   .selection {
     padding: 20px;
     padding-left: 30px;
   }
-  
+
   .project-item {
     position: relative;
     cursor: pointer;
     padding: 0 0 5px 0;
     margin: 0 0 20px 0;
   }
-  
+
   .line {
     height: 3px;
     border: 0;
@@ -480,11 +427,11 @@ body {
     width: 50%;
     transition: width 0.5s ease;
   }
-  
+
   .project-item:hover>.line {
     width: 100%;
   }
-  
+
   .project-item-selected {
     width: 100%;
   }
