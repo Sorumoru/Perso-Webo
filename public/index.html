@@ -40,33 +40,44 @@
       </header>
 
       <div class="main">
-        <div id="content-item-0" class="content">
-          <div class="content-grid-item">
-            <h1 class="short-fade welcome">Kamusta!</h1>
-            <p class="fade description">
+        <div id="content-item-0" class="content" style="display: none">
+          <div class="content-grid-item fade">
+            <h1 class="welcome">Kamusta!</h1>
+            <p class="description">
               My name is Jun Earl Solomon and I'm a fresh graduate at British Columbia Institute of Technology
               with a diploma in Computer Systems Technology.
             </p>
-            <p class="fade">
+            <p>
               I use what I've learned throughout my studies to create my passion projects.
             </p>
           </div>
         </div>
 
-        <div id="content-item-1" class="content" style="display: none">
-          <div class="content-grid-item">
-            <h1 class="short-fade welcome">UX Was Here</h1>
-            <p class="fade description">
+        <div id="content-item-1" class="content">
+          <div class="content-grid-item fade">
+            <h1 class="welcome">UX Was Here</h1>
+            <p class="description">
               "UX Was Here" is a personal project by Matt Karacilic, a UX/UI designer who has a passion for sharing and
               creating design and user experience that is both beautiful and intuitive.
             </p>
+            <div class="content-item-buttons">
+              <!-- <a href="#" class="content-button">View Site</a> -->
+              <div class="button-item">
+                <a href="https://www.uxwashere.com/" target="_blank">View Site</a>
+                <hr id="item-line-1" class="line">
+              </div>
+              <div class="button-item">
+                <a href="https://www.uxwashere.com/" target="_blank">View Site</a>
+                <hr id="item-line-1" class="line">
+              </div>
+            </div>
           </div>
         </div>
 
         <div id="content-item-2" class="content" style="display: none">
-          <div class="content-grid-item">
-            <h1 class="short-fade welcome">Pugna Ultima</h1>
-            <p class="fade description">
+          <div class="content-grid-item fade">
+            <h1 class="welcome">Pugna Ultima</h1>
+            <p class="description">
               A 15 person group project where we (ambitiously) create the best multiplayer fighting game made with the
               Unity game engine and Photon for online integration.
             </p>
@@ -74,9 +85,9 @@
         </div>
 
         <div id="content-item-3" class="content" style="display: none">
-          <div class="content-grid-item">
-            <h1 class="short-fade welcome">More Coming Soon!</h1>
-            <p class="fade description">
+          <div class="content-grid-item fade">
+            <h1 class="welcome">More Coming Soon!</h1>
+            <p class="description">
               Unfortunately I've fallen into the trap in CS Studies where I start projects but never progress enough to
               show any meaningful work, but I'm always continuing to better myself and creating projects that will soon
               see the light of day!
@@ -88,7 +99,7 @@
         </div>
       </div>
 
-      <div class="logo-icon">
+      <div class="logo-icon fade">
         <div onclick="openContent('content-item-0');widenLine('none')">
           <i class="fa-solid fa-eye fa-2xl"></i>
         </div>
@@ -99,15 +110,15 @@
           <h1>Works</h1>
           <div class="selection gradient-border-mask-side">
 
-            <div class="project-item" onclick="openContent('content-item-1');widenLine('item-line-0')">
+            <div class="button-item" onclick="openContent('content-item-1');widenLine('item-line-0')">
               UX Was Here
               <hr id="item-line-0" class="line">
             </div>
-            <div class="project-item" onclick="openContent('content-item-2');widenLine('item-line-1')">
+            <div class="button-item" onclick="openContent('content-item-2');widenLine('item-line-1')">
               Pugna Ultima
               <hr id="item-line-1" class="line">
             </div>
-            <div class="project-item" onclick="openContent('content-item-3');widenLine('item-line-2')">
+            <div class="button-item" onclick="openContent('content-item-3');widenLine('item-line-2')">
               ...
               <hr id="item-line-2" class="line">
             </div>
