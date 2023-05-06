@@ -179,9 +179,18 @@ body {
   position: relative;
 }
 
+.content-title {
+  font-size: 40px;
+  margin: 0;
+}
+
 .content-item-buttons {
   display: flex;
   padding-top: 1rem;
+}
+
+.content-item-buttons>div {
+  padding-right: 2rem;
 }
 
 .content-item-buttons>div>a {
