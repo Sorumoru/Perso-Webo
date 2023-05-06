@@ -56,14 +56,13 @@ function produceThemes() {
  * Should be used on page load.
  */
 function changeTheme() {
-  var randomThemeNumber = Math.floor(Math.random() * 2);
 
   var root = document.querySelector(':root');
-
   var themeArray = produceThemes();
+  var randomTheme = themeArray[Math.floor(Math.random() * 2)];
 
-  root.style.setProperty('--border-theme', themeArray[randomThemeNumber].get('border-theme'));
-  root.style.setProperty('--bg-color', themeArray[randomThemeNumber].get('bg-color'));
-  root.style.setProperty('--font-color', themeArray[randomThemeNumber].get('font-color'));
-  root.style.setProperty('--font-color-faint', themeArray[randomThemeNumber].get('font-color-faint'));
+  root.style.setProperty('--border-theme', randomTheme.get('border-theme'));
+  root.style.setProperty('--bg-color', randomTheme.get('bg-color'));
+  root.style.setProperty('--font-color', randomTheme.get('font-color'));
+  root.style.setProperty('--font-color-faint', randomTheme.get('font-color-faint'));
 }
