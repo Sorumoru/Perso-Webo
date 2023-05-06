@@ -63,10 +63,13 @@
 /** STYLES **/
 :root {
   --border-theme: linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%);
+  --bg-color: rgb(28, 28, 28);
+  --font-color: rgb(255, 255, 255);
+  --font-color-faint: rgb(92, 92, 92);
 }
 
 body {
-  background: rgb(28, 28, 28);
+  background: var(--bg-color);
   font-family: 'Dosis', monospace;
   margin: 0;
   color: white;
@@ -159,22 +162,16 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  position: relative;
-  background: rgb(12, 0, 255);
-  background: var(--border-theme);
-  background-position: 0 -500px;
-  background-repeat: no-repeat;
-  animation: ih-in 3s forwards;
 }
 
 .header>div>a>i {
-  color: #2e2e2e;
+  color: var(--font-color-faint);
   font-size: 40px;
   transition: color 0.5s ease;
 }
 
 .header>div>a>i:hover {
-  color: #fff;
+  color: var(--font-color);
 }
 
 .main {
@@ -204,7 +201,7 @@ body {
 
 .content-item-buttons>div>a {
   text-decoration: none;
-  color: white;
+  color: var(--font-color);
   font-weight: bolder;
 }
 
@@ -224,12 +221,12 @@ body {
 }
 
 .logo-icon>div>i {
-  color: #2e2e2e;
+  color: var(--font-color-faint);
   transition: color 0.5s ease;
 }
 
 .logo-icon>div:hover>i {
-  color: #fff;
+  color: var(--font-color);
 }
 
 .side {
