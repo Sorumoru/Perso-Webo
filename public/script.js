@@ -36,29 +36,24 @@ function produceThemes() {
     'border-theme': 'linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%)',
     'bg-color': 'rgb(28, 28, 28)',
     'font-color': 'rgb(255, 255, 255)',
-    'font-color-faint': 'rgb(92, 92, 92)'
+    'font-color-faint': 'rgb(92, 92, 92)',
+    'selection-color': 'rgb(255, 14, 151)'
   }
 
   const theme1 = {
     'border-theme': 'rgb(0, 0, 0)',
     'bg-color': 'rgb(200, 200, 200)',
     'font-color': 'rgb(10, 10, 10)',
-    'font-color-faint': 'rgb(100, 100, 100)'
-    // 'border-theme': 'linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%)',
-    // 'bg-color': 'rgb(200, 200, 200)',
-    // 'font-color': 'rgb(28, 28, 28)',
-    // 'font-color-faint': 'rgb(92, 92, 92)'
+    'font-color-faint': 'rgb(100, 100, 100)',
+    'selection-color': 'rgb(0, 0, 0)'
   }
 
   const theme2 = {
     'border-theme': 'rgb(255, 0, 140)',
     'bg-color': 'rgb(0, 0, 0)',
     'font-color': 'rgb(0, 255, 255)',
-    'font-color-faint': 'rgb(0, 125, 125)'
-    // 'border-theme': 'linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%)',
-    // 'bg-color': 'rgb(28, 28, 28)',
-    // 'font-color': 'rgb(255, 255, 255)',
-    // 'font-color-faint': 'rgb(92, 92, 92)'
+    'font-color-faint': 'rgb(0, 125, 125)',
+    'selection-color': 'yellow'
   }
 
   var themeArray = [theme0, theme1, theme2];
@@ -81,4 +76,5 @@ function changeTheme() {
   root.style.setProperty('--bg-color', randomTheme["bg-color"]);
   root.style.setProperty('--font-color', randomTheme["font-color"]);
   root.style.setProperty('--font-color-faint', randomTheme["font-color-faint"]);
+  root.style.setProperty('--selection-color', randomTheme["selection-color"]);
 }

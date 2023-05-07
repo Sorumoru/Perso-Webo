@@ -8,13 +8,19 @@
   --bg-color: rgb(28, 28, 28);
   --font-color: rgb(255, 255, 255);
   --font-color-faint: rgb(92, 92, 92);
-
-  --test: rgb(224, 224, 198);
+  --selection-color: rgb(255, 14, 151);
+  --test: rgb(255, 14, 151);
 }
 
 ::selection {
-  background: yellow;
+  background: var(--selection-color);
   color: var(--bg-color);
+}
+
+::selection::before {
+  /* background: var(--border-theme);
+  background-size: 500% 500%;
+  animation: gradient 10s ease infinite; */
 }
 
 body {
