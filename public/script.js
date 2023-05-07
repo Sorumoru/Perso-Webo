@@ -26,27 +26,34 @@ function widenLine(itemLine) {
 }
 
 /**
- * This function produces the different themes and colors and puts them in a
- * map for easier navigation.
+ * This function produces the different themes and colors as objects for easier navigation.
  * 
- * @returns An array of maps with differing themes and colors.
+ * @returns An array of objects with differing themes and colors.
  */
 function produceThemes() {
-  const theme0 = new Map();
 
-  theme0.set('border-theme', 'linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%)');
-  theme0.set('bg-color', 'rgb(28, 28, 28)');
-  theme0.set('font-color', 'rgb(255, 255, 255)');
-  theme0.set('font-color-faint', 'rgb(92, 92, 92)');
+  const theme0 = {
+    'border-theme': 'linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%)',
+    'bg-color': 'rgb(28, 28, 28)',
+    'font-color': 'rgb(255, 255, 255)',
+    'font-color-faint': 'rgb(92, 92, 92)'
+  }
 
-  const theme1 = new Map();
+  const theme1 = {
+    'border-theme': 'rgb(0, 0, 0)',
+    'bg-color': 'rgb(224, 224, 200)',
+    'font-color': 'rgb(10, 10, 10)',
+    'font-color-faint': 'rgb(100, 100, 100)'
+  }
 
-  theme1.set('border-theme', 'rgb(0, 0, 0)');
-  theme1.set('bg-color', 'rgb(200, 200, 200)');
-  theme1.set('font-color', 'rgb(10, 10, 10)');
-  theme1.set('font-color-faint', 'rgb(100, 100, 100)');
+  const theme2 = {
+    'border-theme': 'rgb(255, 0, 140)',
+    'bg-color': 'rgb(0, 0, 0)',
+    'font-color': 'rgb(0, 255, 255)',
+    'font-color-faint': 'rgb(0, 125, 125)'
+  }
 
-  var themeArray = [theme0, theme1];
+  var themeArray = [theme0, theme1, theme2];
 
   return themeArray;
 }
@@ -59,10 +66,11 @@ function changeTheme() {
 
   var root = document.querySelector(':root');
   var themeArray = produceThemes();
-  var randomTheme = themeArray[Math.floor(Math.random() * 2)];
+  var randomNumber = Math.floor(Math.random() * 3);
+  var randomTheme = themeArray[randomNumber];
 
-  root.style.setProperty('--border-theme', randomTheme.get('border-theme'));
-  root.style.setProperty('--bg-color', randomTheme.get('bg-color'));
-  root.style.setProperty('--font-color', randomTheme.get('font-color'));
-  root.style.setProperty('--font-color-faint', randomTheme.get('font-color-faint'));
+  root.style.setProperty('--border-theme', randomTheme["border-theme"]);
+  root.style.setProperty('--bg-color', randomTheme["bg-color"]);
+  root.style.setProperty('--font-color', randomTheme["font-color"]);
+  root.style.setProperty('--font-color-faint', randomTheme["font-color-faint"]);
 }
