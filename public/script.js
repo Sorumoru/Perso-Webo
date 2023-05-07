@@ -20,9 +20,9 @@ function displayContent(contentName) {
 function widenLine(itemLine) {
   var itemList = document.getElementsByClassName("line");
   for (var x = 0; x < itemList.length; x++) {
-    itemList[x].classList.remove("project-item-selected");
+    itemList[x].classList.remove("button-item-selected");
   }
-  document.getElementById(itemLine).classList.add("project-item-selected")
+  document.getElementById(itemLine).classList.add("button-item-selected")
 }
 
 /**
@@ -41,9 +41,13 @@ function produceThemes() {
 
   const theme1 = {
     'border-theme': 'rgb(0, 0, 0)',
-    'bg-color': 'rgb(224, 224, 200)',
+    'bg-color': 'rgb(200, 200, 200)',
     'font-color': 'rgb(10, 10, 10)',
     'font-color-faint': 'rgb(100, 100, 100)'
+    // 'border-theme': 'linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%)',
+    // 'bg-color': 'rgb(200, 200, 200)',
+    // 'font-color': 'rgb(28, 28, 28)',
+    // 'font-color-faint': 'rgb(92, 92, 92)'
   }
 
   const theme2 = {
@@ -51,6 +55,10 @@ function produceThemes() {
     'bg-color': 'rgb(0, 0, 0)',
     'font-color': 'rgb(0, 255, 255)',
     'font-color-faint': 'rgb(0, 125, 125)'
+    // 'border-theme': 'linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%)',
+    // 'bg-color': 'rgb(28, 28, 28)',
+    // 'font-color': 'rgb(255, 255, 255)',
+    // 'font-color-faint': 'rgb(92, 92, 92)'
   }
 
   var themeArray = [theme0, theme1, theme2];
