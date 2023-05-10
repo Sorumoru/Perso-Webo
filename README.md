@@ -1,4 +1,4 @@
-# Perso-Webo
+# Perso Webo
 Hi! You're looking at the codebase for my personal website! You can check the website [here](https://perso-webo.web.app/).
 
 For this website, I challenged myself to see what I could create with just simple HTML, CSS, and JavaScript. My main objective was to refresh my knowledge and skills with the basics since the last time I built a website from scratch was almost a year before this one. Although I am a recent graduate, I felt that going back to the basics would be a useful exercise. Despite having limitations, I had a lot of fun making this website and I plan to continue working on it whenever inspiration strikes.
