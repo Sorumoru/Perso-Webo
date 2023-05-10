@@ -7,8 +7,10 @@ I've been playing quite a bit of Valorant lately and one character there, Chambe
 
 ### Built With
 - HTML/CSS/JavaScript
-- [FontAwesome](https://fontawesome.com/)
+- Icons from [FontAwesome](https://fontawesome.com/)
+- Hosted using [Firebase](https://firebase.google.com/)
 
 ## Acknowledgements
 - I took heavy inspiration from [Ian Dunkerley's website](https://dunks1980.com/), *maybe even a bit too inspired*, but it showed me that your personal website doesn't have to be the most complex thing you've ever created. I liked its simplicity.
+- [Dosis](https://github.com/googlefonts/dosis-vf) is the font I used for the texts.
 - [@faizh27](https://github.com/faizh27) for keeping me accountable and my mentality in check. Also gave me feedback.
