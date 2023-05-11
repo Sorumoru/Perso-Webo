@@ -17,11 +17,11 @@
   color: var(--bg-color);
 }
 
-::selection::before {
-  /* background: var(--border-theme);
+/* ::selection::before {
+  background: var(--border-theme);
   background-size: 500% 500%;
-  animation: gradient 10s ease infinite; */
-}
+  animation: gradient 10s ease infinite;
+} */
 
 body {
   background: var(--bg-color);
