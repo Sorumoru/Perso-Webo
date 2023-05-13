@@ -330,16 +330,11 @@ body {
     left: 0;
   }
 
-  .welcome {
-    font-size: 70px;
-    margin: 0;
-  }
-
 }
 
 /* added this because I wanted my website to look just a tiny bit better
-when someone is using a Microsoft Surface Pro 3, which is also my laptop ehe. */
-@media screen and (min-width: 1201px) and (max-height: 1024px) {
+when someone is using a Microsoft Surface Pro 3, which is also my laptop hehe. */
+@media screen and (min-width: 1201px) and (max-height: 900px) {
 
   .content {
     position: absolute;
