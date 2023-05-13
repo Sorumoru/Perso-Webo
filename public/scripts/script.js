@@ -32,14 +32,22 @@ function widenLine(itemLine) {
  */
 function produceThemes() {
 
-  const theme0 = {
-    'border-theme': 'linear-gradient(75deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%)',
-    'bg-color': 'rgb(28, 28, 28)',
-    'font-color': 'rgb(255, 255, 255)',
-    'font-color-faint': 'rgb(92, 92, 92)',
-    'selection-color': 'rgb(255, 14, 151)'
-  }
+  // const theme0 = {
+  //   'border-theme': 'linear-gradient(65deg, rgba(255,243,0,1) 45%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 50%, rgba(255,243,0,1) 50%)',
+  //   'bg-color': 'rgb(28, 28, 28)',
+  //   'font-color': 'rgb(255, 255, 255)',
+  //   'font-color-faint': 'rgb(92, 92, 92)',
+  //   'selection-color': 'rgb(255, 14, 151)'
+  // }
 
+  const theme0 = {
+    // 'border-theme': 'linear-gradient(65deg, rgba(255,243,0,1) 45%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 50%, rgba(255,243,0,1) 50%)',
+    'border-theme': 'linear-gradient(75deg, rgba(255,183,0,1) 45%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 50%, rgba(255,183,0,1) 50%)',
+    'bg-color': 'rgb(200, 200, 200)',
+    'font-color': 'rgb(10, 10, 10)',
+    'font-color-faint': 'rgb(100, 100, 100)',
+    'selection-color': 'rgb(0, 0, 0)'
+  }
   const theme1 = {
     'border-theme': 'rgb(0, 0, 0)',
     'bg-color': 'rgb(200, 200, 200)',
@@ -70,7 +78,7 @@ function changeTheme() {
   var root = document.querySelector(':root');
   var themeArray = produceThemes();
   var randomNumber = Math.floor(Math.random() * 3);
-  var randomTheme = themeArray[randomNumber];
+  var randomTheme = themeArray[0];
 
   root.style.setProperty('--border-theme', randomTheme["border-theme"]);
   root.style.setProperty('--bg-color', randomTheme["bg-color"]);
