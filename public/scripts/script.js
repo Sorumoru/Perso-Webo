@@ -87,20 +87,22 @@ function produceThemes() {
  * This function randomly changes the theme and colors of the website.
  * Should be used on page load.
  */
-// function changeTheme() {
+function changeTheme() {
 
-//   var root = document.querySelector(':root');
-//   var themeArray = produceThemes();
-//   var randomNumber = Math.floor(Math.random() * 3);
-//   var randomTheme = themeArray[randomNumber];
+  var root = document.querySelector(':root');
+  var themeArray = produceThemes();
+  var randomNumber = Math.floor(Math.random() * 3);
+  var randomTheme = themeArray[randomNumber];
 
-//   root.style.setProperty('--border-theme', randomTheme["border-theme"]);
-//   root.style.setProperty('--bg-color', randomTheme["bg-color"]);
-//   root.style.setProperty('--font-color', randomTheme["font-color"]);
-//   root.style.setProperty('--font-color-faint', randomTheme["font-color-faint"]);
-//   root.style.setProperty('--selection-color', randomTheme["selection-color"]);
-// }
+  root.style.setProperty('--border-theme', randomTheme["border-theme"]);
+  root.style.setProperty('--bg-color', randomTheme["bg-color"]);
+  root.style.setProperty('--font-color', randomTheme["font-color"]);
+  root.style.setProperty('--font-color-faint', randomTheme["font-color-faint"]);
+  root.style.setProperty('--selection-color', randomTheme["selection-color"]);
+}
 
 document.querySelector(".light-switch").addEventListener("click", () => {
   document.body.classList.toggle("light-mode")
+  document.getElementById("moon").classList.toggle("hide");
+  document.getElementById("sun").classList.toggle("hide");
 })

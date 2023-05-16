@@ -36,20 +36,8 @@ body {
   transition: 0.25s;
 }
 
-.moon {
-  opacity: 1;
-}
-
-.light-mode .moon {
-  opacity: 0;
-}
-
-.sun {
-  opacity: 0;
-}
-
-.light-mode .sun {
-  opacity: 1;
+.hide {
+  display: none;
 }
 
 .fade {
@@ -153,10 +141,14 @@ body {
 
 .light-switch {
   margin-left: auto;
+  position: relative;
+  /* height: 50%; */
+  padding-top: 0;
 }
 
 .light-switch>a {
   position: absolute;
+  left: 0;
 }
 
 .logo-icon {
