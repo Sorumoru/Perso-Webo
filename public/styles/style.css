@@ -4,7 +4,7 @@
 }
 
 :root {
-  --border-theme: linear-gradient(65deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%);
+  --border-theme: linear-gradient(65deg, rgb(255, 215, 0) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%);
   --bg-color: rgb(28, 28, 28);
   --font-color: rgb(255, 255, 255);
   --font-color-faint: rgb(92, 92, 92);
@@ -12,6 +12,19 @@
   --test: rgb(255, 14, 151);
   --gradient-animation-duration: 10s;
   --gradient-animation-delay: 0s;
+}
+
+.light-mode {
+  --border-theme: linear-gradient(45deg, rgba(255, 215, 0, 1) 0%, rgba(213, 181, 174, 1) 60%);
+  ;
+  ;
+  --bg-color: #fff;
+  --font-color: #070c0d;
+  --font-color-faint: #d5b5ae;
+  --highlight-color: #ffd700;
+
+  --selection-color: #b13b1b;
+  transition: 0.25s;
 }
 
 ::selection {
@@ -24,15 +37,6 @@ body {
   font-family: 'Dosis', monospace;
   margin: 0;
   color: var(--font-color);
-  transition: 0.25s;
-}
-
-.light-mode {
-  --border-theme: rgb(0, 0, 0);
-  --bg-color: rgb(200, 200, 200);
-  --font-color: rgb(10, 10, 10);
-  --font-color-faint: rgb(100, 100, 100);
-  --selection-color: rgb(0, 0, 0);
   transition: 0.25s;
 }
 
@@ -130,20 +134,24 @@ body {
 }
 
 .header>div>a>i {
-  color: var(--font-color-faint);
+  background: var(--border-theme);
+  background-size: 500% 500%;
+  animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-size: 40px;
   transition: color 0.5s ease;
 }
 
 .header>div>a>i:hover {
-  color: var(--font-color);
+  color: var(--highlight-color);
 }
 
 .light-switch {
   margin-left: auto;
   position: relative;
-  /* height: 50%; */
-  padding-top: 0;
+  cursor: pointer;
 }
 
 .light-switch>a {
@@ -190,6 +198,15 @@ body {
   font-family: 'Sora', monospace;
   font-size: 70px;
   margin: 0;
+}
+
+.test {
+  background: var(--border-theme);
+  background-size: 500% 500%;
+  animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .content-item-buttons {
