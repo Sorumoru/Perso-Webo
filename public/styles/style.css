@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Dosis';
-  src: url(fonts/Dosis/Dosis-VariableFont_wght.ttf);
+  src: url(../fonts/Dosis/Dosis-VariableFont_wght.ttf);
 }
 
 :root {
@@ -24,6 +24,32 @@ body {
   font-family: 'Dosis', monospace;
   margin: 0;
   color: var(--font-color);
+  transition: 0.25s;
+}
+
+.light-mode {
+  --border-theme: rgb(0, 0, 0);
+  --bg-color: rgb(200, 200, 200);
+  --font-color: rgb(10, 10, 10);
+  --font-color-faint: rgb(100, 100, 100);
+  --selection-color: rgb(0, 0, 0);
+  transition: 0.25s;
+}
+
+.moon {
+  opacity: 1;
+}
+
+.light-mode .moon {
+  opacity: 0;
+}
+
+.sun {
+  opacity: 0;
+}
+
+.light-mode .sun {
+  opacity: 1;
 }
 
 .fade {
@@ -127,6 +153,10 @@ body {
 
 .light-switch {
   margin-left: auto;
+}
+
+.light-switch>a {
+  position: absolute;
 }
 
 .logo-icon {

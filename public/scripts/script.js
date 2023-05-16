@@ -1,3 +1,17 @@
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  // Dark mode is enabled
+  console.log("Dark mode is enabled");
+  document.getElementById("moon").classList.add("hide");
+  document.getElementById("sun").classList.remove("hide");
+
+} else {
+  // Dark mode is not enabled
+  console.log("Dark mode is not enabled");
+  document.getElementById("moon").classList.remove("hide");
+  document.getElementById("sun").classList.add("hide");
+  document.body.classList.toggle('light-mode');
+}
+
 /**
  * This function displays the content that is selected by the user.
  * source used: https://www.w3schools.com/w3css/w3css_tabulators.asp
@@ -42,11 +56,11 @@ function produceThemes() {
 
   const theme0 = {
     // 'border-theme': 'linear-gradient(65deg, rgba(255,243,0,1) 45%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 50%, rgba(255,243,0,1) 50%)',
-    'border-theme': 'linear-gradient(75deg, rgba(255,183,0,1) 45%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 50%, rgba(255,183,0,1) 50%)',
-    'bg-color': 'rgb(200, 200, 200)',
-    'font-color': 'rgb(10, 10, 10)',
-    'font-color-faint': 'rgb(100, 100, 100)',
-    'selection-color': 'rgb(0, 0, 0)'
+    'border-theme': 'linear-gradient(65deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%)',
+    'bg-color': 'rgb(25, 25, 25)',
+    'font-color': 'rgb(255, 255, 255)',
+    'font-color-faint': 'rgb(92, 92, 92)',
+    'selection-color': 'rgb(255, 14, 151)'
   }
   const theme1 = {
     'border-theme': 'rgb(0, 0, 0)',
@@ -73,16 +87,20 @@ function produceThemes() {
  * This function randomly changes the theme and colors of the website.
  * Should be used on page load.
  */
-function changeTheme() {
+// function changeTheme() {
 
-  var root = document.querySelector(':root');
-  var themeArray = produceThemes();
-  var randomNumber = Math.floor(Math.random() * 3);
-  var randomTheme = themeArray[0];
+//   var root = document.querySelector(':root');
+//   var themeArray = produceThemes();
+//   var randomNumber = Math.floor(Math.random() * 3);
+//   var randomTheme = themeArray[randomNumber];
 
-  root.style.setProperty('--border-theme', randomTheme["border-theme"]);
-  root.style.setProperty('--bg-color', randomTheme["bg-color"]);
-  root.style.setProperty('--font-color', randomTheme["font-color"]);
-  root.style.setProperty('--font-color-faint', randomTheme["font-color-faint"]);
-  root.style.setProperty('--selection-color', randomTheme["selection-color"]);
-}
+//   root.style.setProperty('--border-theme', randomTheme["border-theme"]);
+//   root.style.setProperty('--bg-color', randomTheme["bg-color"]);
+//   root.style.setProperty('--font-color', randomTheme["font-color"]);
+//   root.style.setProperty('--font-color-faint', randomTheme["font-color-faint"]);
+//   root.style.setProperty('--selection-color', randomTheme["selection-color"]);
+// }
+
+document.querySelector(".light-switch").addEventListener("click", () => {
+  document.body.classList.toggle("light-mode")
+})
