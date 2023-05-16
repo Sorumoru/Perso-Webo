@@ -1,3 +1,7 @@
+/**
+ * Checks if the browser's in light mode or dark mode and configures the website
+ * based off of that.
+ */
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
   // Dark mode is enabled
   console.log("Dark mode is enabled");
@@ -11,6 +15,15 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
   document.getElementById("sun").classList.add("hide");
   document.body.classList.toggle('light-mode');
 }
+
+/**
+ * Toggling between light mode and dark mode.
+ */
+document.querySelector(".light-switch").addEventListener("click", () => {
+  document.body.classList.toggle("light-mode")
+  document.getElementById("moon").classList.toggle("hide");
+  document.getElementById("sun").classList.toggle("hide");
+})
 
 /**
  * This function displays the content that is selected by the user.
@@ -46,16 +59,7 @@ function widenLine(itemLine) {
  */
 function produceThemes() {
 
-  // const theme0 = {
-  //   'border-theme': 'linear-gradient(65deg, rgba(255,243,0,1) 45%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 50%, rgba(255,243,0,1) 50%)',
-  //   'bg-color': 'rgb(28, 28, 28)',
-  //   'font-color': 'rgb(255, 255, 255)',
-  //   'font-color-faint': 'rgb(92, 92, 92)',
-  //   'selection-color': 'rgb(255, 14, 151)'
-  // }
-
   const theme0 = {
-    // 'border-theme': 'linear-gradient(65deg, rgba(255,243,0,1) 45%, rgba(255,255,255,1) 45%, rgba(255,255,255,1) 50%, rgba(255,243,0,1) 50%)',
     'border-theme': 'linear-gradient(65deg, rgba(255, 215, 0, 1) 0%, rgba(255, 165, 0, 1) 13%, rgba(255, 215, 0, 1) 40%, rgba(255, 255, 255, 1) 50%, rgba(255, 215, 0, 1) 60%, rgba(255, 165, 0, 1) 80%, rgba(255, 215, 0, 1) 100%)',
     'bg-color': 'rgb(25, 25, 25)',
     'font-color': 'rgb(255, 255, 255)',
@@ -86,6 +90,8 @@ function produceThemes() {
 /**
  * This function randomly changes the theme and colors of the website.
  * Should be used on page load.
+ * 
+ * Not in use for now.
  */
 function changeTheme() {
 
@@ -100,9 +106,3 @@ function changeTheme() {
   root.style.setProperty('--font-color-faint', randomTheme["font-color-faint"]);
   root.style.setProperty('--selection-color', randomTheme["selection-color"]);
 }
-
-document.querySelector(".light-switch").addEventListener("click", () => {
-  document.body.classList.toggle("light-mode")
-  document.getElementById("moon").classList.toggle("hide");
-  document.getElementById("sun").classList.toggle("hide");
-})
