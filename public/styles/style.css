@@ -199,10 +199,15 @@ body {
   position: relative;
 }
 
+.side>div>h1 {
+  color: var(--icon-hover-color);
+}
+
 .title {
   font-family: 'Sora', monospace;
   font-size: 70px;
   margin: 0;
+  color: var(--icon-hover-color);
 }
 
 .colored-text {
@@ -215,6 +220,10 @@ body {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.content-grid-item>p b {
+  color: var(--icon-hover-color);
 }
 
 .content-item-buttons {
@@ -282,6 +291,17 @@ body {
   padding: 0 0 5px 0;
   margin: 0 0 20px 0;
   font-family: 'Sora', monospace;
+  color: var(--font-color);
+  transition: color 0.5s ease;
+}
+
+.button-item>a {
+  color: var(--font-color);
+  transition: color 0.5s ease;
+}
+
+.button-item:hover, .button-item>a:hover {
+  color: var(--icon-hover-color);
 }
 
 .line {
