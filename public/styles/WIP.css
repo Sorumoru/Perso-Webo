@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'Dosis';
+    src: url(../fonts/Dosis/Dosis-VariableFont_wght.ttf);
+}
+
+:root {
+  /* background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%); */
+  --border-theme: linear-gradient(to right, #fa709a 0%, #4053fe 100%);
+  --bg-color: rgb(14, 14, 14);
+  --font-color: rgba(255, 255, 255, 0.7);
+  --mask-bg-color: #fa709a;
+  --icon-hover-color: rgb(255, 255, 255);
+  --selection-color: rgba(255, 255, 255, 0.7);
+  --gradient-animation-duration: 10s;
+  --gradient-animation-delay: 0s;
+}
+
+.light-mode {
+  --border-theme: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
+  --bg-color: rgb(255, 255, 255);
+  --font-color: rgba(0, 15, 24, 0.85);
+  --mask-bg-color: #92fe9d;
+  --icon-hover-color: rgb(0, 15, 24);
+  --selection-color: rgba(0, 15, 24, 0.85);
+  transition: 0.25s;
+}
+
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    font-family: 'Dosis', monospace;
+    font-size: large;
+    background: var(--bg-color);
+    /* background-size: 500% 500%;
+    animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite; */
+}
+
+.container {
+    /* background: var(--bg-color); */
+    width: 40%;
+    height: 50%;
+    border-radius: 20px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--border-theme);
+    background-size: 500% 500%;
+    animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite;
+
+}
+
+.title {
+    font-family: 'Sora', monospace;
+    font-size: calc(20vh / 4);
+    margin: 0;
+    color: var(--bg-color);
+  }
+
+p {
+    font-weight: 500;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+.socials {
+    display: flex;
+    margin-top: 25px;
+}
+.button-item {
+    cursor: pointer;
+    padding: 0 0 5px 0;
+    margin-right: 20px;
+    font-family: 'Sora', monospace;
+    color: var(--bg-color);
+    transition: color 0.5s ease;
+}
+
+.button-item>a {
+  color: var(--bg-color);
+  transition: color 0.5s ease;
+  text-decoration: none;
+}
+
+.button-item:hover, .button-item>a:hover {
+  color: var(--bg-color);
+}
+
+.line {
+    height: 3px;
+    border: 0;
+    margin: 5px 0 0 0;
+    background: var(--bg-color);
+    /* background-size: 500% 500%; */
+    /* animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite; */
+    width: 50%;
+    transition: width 0.5s ease;
+  }
+  
+  .button-item:hover>.line {
+    width: 100%;
+  }
+  
+  .button-item-selected {
+    width: 100%;
+  }
+/* KEYFRAMES */
+@keyframes gradient {
+    0% {
+      background-position: 10% 50%;
+    }
+  
+    50% {
+      background-position: 90% 50%;
+    }
+  
+    100% {
+      background-position: 10% 50%;
+    }
+  }
