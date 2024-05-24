@@ -4,25 +4,14 @@
 }
 
 :root {
-  /* background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%); */
-  --border-theme: linear-gradient(to right, #fa709a 0%, #4053fe 100%);
-  --bg-color: rgb(14, 14, 14);
-  --font-color: rgba(255, 255, 255, 0.7);
-  --mask-bg-color: #fa709a;
-  --icon-hover-color: rgb(255, 255, 255);
-  --selection-color: rgba(255, 255, 255, 0.7);
-  --gradient-animation-duration: 10s;
-  --gradient-animation-delay: 0s;
-}
+  --bg-color: #FAFAF9;
+  --font-color: #121212;
 
-.light-mode {
-  --border-theme: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
-  --bg-color: rgb(255, 255, 255);
-  --font-color: rgba(0, 15, 24, 0.85);
-  --mask-bg-color: #92fe9d;
-  --icon-hover-color: rgb(0, 15, 24);
-  --selection-color: rgba(0, 15, 24, 0.85);
-  transition: 0.25s;
+  --card-color: #F0EEEE;
+  --date-font-color: #908A86;
+  
+  --tech-item-color: #E2E2E2;
+  --tech-font-color: #888888;
 }
 
 body {
@@ -31,7 +20,7 @@ body {
     align-items: center;
     font-family: 'Dosis';
     font-size: larger;
-    background-color: #FAFAF9;
+    background-color: var(--bg-color);
     height: 5000px
 }
 
@@ -59,56 +48,52 @@ nav {
     flex-direction: row;
 }
 
-.button-item {
+nav>div {
+    margin-left: 50px;
+}
+.line-button {
     align-self: center;
-    padding-left: 50px;
     cursor: pointer;
     /* font-family: 'Sora', monospace; */
     /* font-weight: 1000; */
-    color: var(--bg-color);
+    color: var(--font-color);
     transition: color 0.5s ease;
 }
 
-.button-item>a {
-  color: var(--bg-color);
+.line-button>a {
+  color: var(--font-color);
   transition: color 0.5s ease;
   text-decoration: none;
 }
 
-.button-item:hover, .button-item>a:hover {
-  color: var(--bg-color);
+.line-button:hover, .line-button>a:hover {
+  color: var(--font-color);
 }
 
 .line {
     height: 3px;
     border: 0;
     margin: 5px 0 0 0;
-    background: var(--bg-color);
+    background: var(--font-color);
     /* background-size: 500% 500%; */
     /* animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite; */
     width: 0%;
     transition: width 0.5s ease;
 }
 
-.button-item:hover>.line {
+.line-button:hover>.line {
   width: 100%;
 }
 
-.button-item-selected {
+.line-button-selected {
   width: 100%;
 }
 
 main {
-    /* background-color: #4053fe; */
-    /* border:rgb(0, 15, 24); */
-    /* border-style: solid; */
-    /* TODO: make responsive */
     width: 1000px;
-    /* height: 1000px; */
 }
 
 main>section {
-    /* background-color: #92fe9d; */
     margin-top: 100px;
 }
 
@@ -127,11 +112,10 @@ h2 {
 
 .project-anchor {
     cursor: pointer;
-    /* margin-bottom: 20px; */
 }
 
 .project-card {
-    background-color: #F0EEEE;
+    background-color: var(--card-color);
     width: 100%;
     height: 320px;
     border-radius: 20px;
@@ -144,7 +128,7 @@ h2 {
 
 /* https://codepen.io/Amirali_79/pen/oXZKyN */
 .project-card:hover {
-    box-shadow: 0 0 0 3px #FAFAF9, 0 0 0 5px #F0EEEE;
+    box-shadow: 0 0 0 3px #FAFAF9, 0 0 0 5px var(--card-color);
 }
 
 .project-details {
@@ -154,9 +138,9 @@ h2 {
     padding: 30px 0 20px 0;
 }
 
-.project-details>span {
+.project-date {
     font-size: medium;
-    color: #888888;
+    color: var(--date-font-color);
 }
 
 /* I'd say they're more like buzzwords XD */
@@ -172,8 +156,8 @@ h2 {
 }
 
 .project-tech-stack>span {
-    background-color: #E2E2E2;
-    color: #888888;
+    background-color: var(--tech-item-color);
+    color: var(--tech-font-color);
     border-radius: 20px;
     font-size: small;
     padding: 5px 10px 5px 10px;
@@ -198,4 +182,55 @@ h2 {
 
 .project-anchor:hover .project-img>img {
     height: 105%;
+}
+
+.contact {
+    margin: 100px 200px 0 200px;
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.contact-list>div {
+    margin: 0 25px 0 25px;
+}
+
+.contact-list>a {
+    margin: 0 25px 0 25px;
+    color: var(--font-color);
+    transition: color 0.5s ease;
+    text-decoration: none;
+}
+
+.full-button {
+    border-radius: 1em;
+    padding: 0.35em 1em;
+    min-width: 40px;
+    width: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* HOLY SHIT THIS TOOK ME SO LONG */
+    background: linear-gradient(to right, var(--font-color) 50%, var(--bg-color) 50%) right bottom / 205% 100%;
+    border: 2px solid;
+    border-color: black;
+    background-position-x: right;
+    background-position-y: bottom;
+    transition: 0.1s ease-out;
+}
+
+.full-button:hover {
+    color: var(--bg-color);
+    background-position: left bottom;
+}
+
+
+/* bro I don't even know */
+.full-button>i {
+    margin-top: 1px;
+    margin-right: 7px;
 }
