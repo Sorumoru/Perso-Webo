@@ -127,7 +127,7 @@ h2 {
 
 .project-anchor {
     cursor: pointer;
-    
+    /* margin-bottom: 20px; */
 }
 
 .project-card {
@@ -136,6 +136,7 @@ h2 {
     height: 320px;
     border-radius: 20px;
     /* padding: 0 30px 0 30px; */
+    margin-bottom: 1.5em;
     display: grid;
     grid-template-columns:2% 33% 63% 2%;
     transition: all ease .3s;
@@ -153,6 +154,12 @@ h2 {
     padding: 30px 0 20px 0;
 }
 
+.project-details>span {
+    font-size: medium;
+    color: #888888;
+}
+
+/* I'd say they're more like buzzwords XD */
 .project-tech-stack {
     display: flex;
     flex-direction: row;
@@ -180,7 +187,15 @@ h2 {
     grid-column: 3;
     display: flex;
     justify-content: center;
+    vertical-align: middle;
+    overflow: hidden;
 }
 .project-img>img {
-    width: 320px;
+    height: 100%;
+    align-self: center;
+    transition: all ease .3s;
+}
+
+.project-anchor:hover .project-img>img {
+    height: 105%;
 }
