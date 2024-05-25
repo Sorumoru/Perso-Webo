@@ -1,491 +1,265 @@
 @font-face {
-  font-family: 'Dosis';
-  src: url(../fonts/Dosis/Dosis-VariableFont_wght.ttf);
+    font-family: 'Dosis';
+    src: url(../fonts/Dosis/Dosis-VariableFont_wght.ttf);
 }
 
 :root {
-  /* background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%); */
-  --border-theme: linear-gradient(to right, #fa709a 0%, #fee140 100%);
-  --bg-color: rgb(14, 14, 14);
-  --font-color: rgba(255, 255, 255, 0.7);
-  --mask-bg-color: #fa709a;
-  --icon-hover-color: rgb(255, 255, 255);
-  --selection-color: rgba(255, 255, 255, 0.7);
-  --gradient-animation-duration: 10s;
-  --gradient-animation-delay: 0s;
+  --bg-color: #FAFAF9;
+  --font-color: #121212;
+
+  --card-color: #F0EEEE;
+  --date-font-color: #908A86;
+  
+  --tech-item-color: #E2E2E2;
+  --tech-font-color: #888888;
 }
 
-.light-mode {
-  --border-theme: linear-gradient(to right, #92fe9d 0%, #00c9ff 100%);
-  --bg-color: rgb(255, 255, 255);
-  --font-color: rgba(0, 15, 24, 0.85);
-  --mask-bg-color: #92fe9d;
-  --icon-hover-color: rgb(0, 15, 24);
-  --selection-color: rgba(0, 15, 24, 0.85);
-  transition: 0.25s;
+html {
+    scroll-behavior: smooth;
 }
-
-::selection {
-  background: var(--selection-color);
-  color: var(--bg-color);
-}
-
 body {
-  background: var(--bg-color);
-  font-family: 'Dosis', monospace;
-  margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Dosis';
+    font-size: larger;
+    background-color: var(--bg-color);
+    /* height: 5000px */
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    /* TODO: make responsive */
+    width: 1000px;
+    height: 150px;
+    justify-content: space-between;
+}
+
+section {
+    margin: 150px 0 150px 0;
+}
+
+.portfolio>div {
+    margin-bottom: 70px;
+}
+
+
+.minime {
+    align-self: center;
+    cursor: pointer;
+}
+
+.minime>img {
+    width: 50px;
+    image-rendering: pixelated;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+}
+
+nav>div {
+    margin-left: 50px;
+}
+.line-button {
+    align-self: center;
+    cursor: pointer;
+    /* font-family: 'Sora', monospace; */
+    /* font-weight: 1000; */
+    color: var(--font-color);
+}
+
+.line-button>a {
   color: var(--font-color);
-  transition: 0.25s;
-}
-
-.hide {
-  display: none;
-}
-
-.fade {
-  opacity: 0;
-  animation: fade-in 2s ease forwards;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  position: relative;
-}
-
-/* TODO: not used at the moment */
-.gradient-card {
-  position: absolute;
-  padding: 10vh;
-  height: 65vh;
-  width: 75vw;
-  z-index: 10;
-  animation: gradient-card-index 2s linear 2s forwards;
-}
-
-/* TODO: not used at the moment */
-.gradient-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50px;
-  border: 10px solid transparent;
-  background: var(--border-theme);
-  background-size: 500% 500%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  animation: gradient var(--gradient-animation-duration) ease infinite, gradient-card-animation 1.5s linear 0.5s forwards;
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  /* -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); */
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-}
-
-.container-inner {
-  display: grid;
-  grid-template-rows: 20% 80%;
-  grid-template-columns: 80% 20%;
-  height: 65vh;
-  width: 75vw;
-}
-
-/* https://nikitahl.com/gradient-border-css THE GOAT */
-.gradient-border-mask {
-  position: relative;
-  padding: 5vw;
-}
-
-.gradient-border-mask::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50px;
-  border: 10px solid transparent;
-  background: var(--border-theme);
-  background-size: 500% 500%;
-  animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite;
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-}
-
-.header {
-  grid-column: 1 / 2;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.header>div {
-  padding: 0 20px 0 20px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.header>div>a>i {
-  background: var(--font-color);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 40px;
-  transition: background-color 0.25s ease;
-}
-
-.header>div>a>i:hover {
-  background-color: var(--icon-hover-color);
-  animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.light-switch {
-  margin-left: auto;
-  position: relative;
-  cursor: pointer;
-}
-
-.light-switch>a {
-  position: absolute;
-  left: 0;
-}
-
-.logo-icon {
-  grid-column: 2 / 3;
-  grid-row: 1 / 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 50px;
-  /* added because for some reason this div is lower than bg border */
-  z-index: 1;
-}
-
-.logo-icon>div {
-  cursor: pointer;
-  line-height: 100px;
-  background: var(--border-theme);
-  background-color: var(--mask-bg-color);
-  background-size: 500% 500%;
-  animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: background-color 0.5s ease;
-}
-
-.logo-icon>div:hover {
-  background-color: var(--icon-hover-color);
-  background-size: 0%;
-}
-
-.logo-image {
-  max-width: 100%;
-}
-
-.main {
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  display: flex;
-  position: relative;
-}
-
-.side>div>h1 {
-  color: var(--icon-hover-color);
-}
-
-.title {
-  font-family: 'Sora', monospace;
-  font-size: calc(20vh / 3);
-  margin: 0;
-  color: var(--icon-hover-color);
-}
-
-.content {
-  position: absolute;
-  top: calc(90vh / 5);
-  font-size: calc(90vh / 50);
-}
-
-.colored-text {
-  background: var(--border-theme);
-  background-size: 500% 500%;
-  animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.content-grid-item>p b {
-  color: var(--icon-hover-color);
-}
-
-.content-item-buttons {
-  display: flex;
-  font-size: large;
-  padding-top: 1rem;
-}
-
-.content-item-buttons>div {
-  padding-right: 2rem;
-}
-
-.content-item-buttons>div>a {
   text-decoration: none;
+}
+
+.line-button:hover, .line-button>a:hover {
   color: var(--font-color);
-  font-weight: bolder;
-}
-
-.side {
-  height: calc(100vh / 2.5);
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.gradient-border-mask-side {
-  position: relative;
-}
-
-.gradient-border-mask-side::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 15px;
-  border: 3px solid transparent;
-  background: var(--border-theme);
-  background-size: 500% 500%;
-  animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite;
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude;
-  clip-path: polygon(0 0, 40% 0, 40% 75%, 0 75%);
-  transition: clip-path 0.5s ease;
-}
-
-.gradient-border-mask-side:hover::before {
-  clip-path: polygon(0 0, 90% 0, 90% 40%, 0 40%);
-}
-
-.selection {
-  padding: 20px;
-  padding-left: 30px;
-}
-
-.button-item {
-  position: relative;
-  cursor: pointer;
-  padding: 0 0 5px 0;
-  margin: 0 0 20px 0;
-  font-family: 'Sora', monospace;
-  color: var(--font-color);
-  transition: color 0.5s ease;
-}
-
-.button-item>a {
-  color: var(--font-color);
-  transition: color 0.5s ease;
-}
-
-.button-item:hover, .button-item>a:hover {
-  color: var(--icon-hover-color);
 }
 
 .line {
-  height: 3px;
-  border: 0;
-  margin: 5px 0 0 0;
-  background: var(--border-theme);
-  background-size: 500% 500%;
-  animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite;
-  width: 50%;
-  transition: width 0.5s ease;
+    height: 3px;
+    border: 0;
+    margin: 5px 0 0 0;
+    background: var(--font-color);
+    /* background-size: 500% 500%; */
+    /* animation: gradient var(--gradient-animation-duration) ease var(--gradient-animation-delay) infinite; */
+    width: 0%;
+    transition: width 0.1s ease-out;
 }
 
-.button-item:hover>.line {
+.line-button:hover>.line {
   width: 100%;
 }
 
-.button-item-selected {
+.line-button-selected {
   width: 100%;
 }
 
-@media screen and (max-width: 480px) {
+main {
+    width: 1000px;
+}
 
-  .container {
-    height: 0%;
-  }
+main>section {
+    margin-top: 100px;
+}
 
-  .container-inner {
+h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+h2 {
+    margin: 0;
+}
+
+.project-header {
+    margin-bottom: 30px;
+}
+
+.project-anchor {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+.project-card {
+    background-color: var(--card-color);
+    width: 100%;
+    height: 320px;
+    border-radius: 20px;
+    /* padding: 0 30px 0 30px; */
+    margin-bottom: 1.5em;
+    display: grid;
+    grid-template-columns:2% 33% 63% 2%;
+    transition: all ease .3s;
+}
+
+/* https://codepen.io/Amirali_79/pen/oXZKyN */
+.project-card:hover {
+    box-shadow: 0 0 0 3px #FAFAF9, 0 0 0 5px var(--card-color);
+}
+
+/* TODO: go back to flex */
+.project-details {
+    grid-column: 2;
+    display: grid;
+    grid-template-rows: [date] 30% [title] 20% [desc] 20% [stack] 30%;
+    padding: 30px 0 20px 0;
+}
+
+.project-date {
+    font-size: medium;
+    color: var(--date-font-color);
+}
+
+/* I'd say they're more like buzzwords XD */
+.project-tech-stack {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    align-content: center;
+    /* align-items: center; */
+    width: 100%;
+    /* height: auto; */
+}
+
+.project-tech-stack>span {
+    background-color: var(--tech-item-color);
+    color: var(--tech-font-color);
+    border-radius: 20px;
+    font-size: small;
+    padding: 5px 10px 5px 10px;
+    margin: 5px 3px 5px 3px;
+    min-width: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.project-img {
+    grid-column: 3;
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+    overflow: hidden;
+}
+.project-img>img {
+    height: 100%;
+    align-self: center;
+    transition: all ease .3s;
+}
+
+.project-anchor:hover .project-img>img {
+    height: 105%;
+}
+
+.contact {
+    margin: 100px 200px 100px 200px;
+}
+
+.contact-email {
     display: flex;
     flex-direction: column;
-    height: 90vh;
-    width: 100%;
-  }
-
-  .gradient-border-mask {
-    padding: 5vh 10vw 5vh 10vw;
-  }
-
-  .gradient-border-mask::before {
-    border-radius: 25px;
-    clip-path: polygon(0 0, 100% 0, 100% 25%, 25% 25%, 25% 65%, 0 65%);
-  }
-
-  .header {
-    order: 3;
-    justify-content: space-between;
-  }
-
-  .main {
-    order: 1;
-  }
-
-  .logo-icon {
-    order: 0;
-    font-size: 30px;
-    padding: 10px 0 10px 0;
-  }
-
-  .side {
-    order: 2;
-    width: 50%;
-  }
-
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0 60px 0;
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px) {
-
-  .container-inner {
-    grid-template-rows: 20% 80%;
-    grid-template-columns: 70% 30%;
-    height: 80vh;
-  }
-
-  .content {
-    /* position: absolute; */
-    /* top: 5%; */
-  }
+.contact-email>h4 {
+    margin: 0;
+}
+.contact-email>h4>a {
+    text-decoration: none;
+    color: var(--font-color);
 }
 
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-
-  .container-inner {
-    grid-template-rows: 20% 80%;
-    grid-template-columns: 70% 30%;
-    position: relative;
-    height: 80vh;
-  }
-
-  .content {
-    position: absolute;
-    top: 50%;
-  }
+.contact-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-/* @media screen and (min-width: 1025px) and (max-width: 1200px) {
-  .content {
-    position: absolute;
-    top: 15%;
-  }
-} */
-
-/* @media screen and (min-width: 1201px) {
-
-  .content {
-    position: absolute;
-    top: 35%;
-    left: 0;
-  }
-
-} */
-
-/* added this because I wanted my website to look just a tiny bit better
-when someone is using a Microsoft Surface Pro 3, which is also my laptop hehe. */
-/* @media screen and (min-width: 1201px) and (max-height: 900px) {
-
-  .content {
-    position: absolute;
-    top: 30%;
-    left: 0;
-  }
-
-} */
-
-
-
-/* KEYFRAMES */
-@keyframes gradient {
-  0% {
-    background-position: 10% 50%;
-  }
-
-  50% {
-    background-position: 90% 50%;
-  }
-
-  100% {
-    background-position: 10% 50%;
-  }
+.contact-list>div {
+    margin: 0 25px 0 25px;
 }
 
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
+.contact-list>a {
+    margin: 0 25px 0 25px;
+    color: var(--font-color);
+    transition: color 0.1s ease;
+    text-decoration: none;
 }
 
-@keyframes gradient-card-animation {
-  0% {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
+.full-button {
+    border-radius: 1em;
+    padding: 0.35em 1em;
+    min-width: 40px;
+    width: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  25% {
-    clip-path: polygon(20% 0, 100% 0, 100% 100%, 40% 100%);
-  }
-
-  50% {
-    clip-path: polygon(40% 0, 100% 0, 100% 100%, 60% 100%);
-  }
-
-  75% {
-    clip-path: polygon(60% 0, 100% 0, 100% 100%, 80% 100%);
-  }
-
-  100% {
-    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
-  }
+    /* HOLY SHIT THIS TOOK ME SO LONG */
+    background: linear-gradient(to right, var(--font-color) 50%, var(--bg-color) 50%) right bottom / 205% 100%;
+    border: 2px solid;
+    border-color: black;
+    background-position-x: right;
+    background-position-y: bottom;
+    transition: 0.1s ease-out;
 }
 
-@keyframes gradient-card-index {
-  from {
-    z-index: 10;
-  }
+.full-button:hover {
+    color: var(--bg-color);
+    background-position: left bottom;
+}
 
-  to {
-    z-index: 0;
-  }
+
+/* bro I don't even know */
+.full-button>i {
+    margin-top: 1px;
+    margin-right: 7px;
 }
