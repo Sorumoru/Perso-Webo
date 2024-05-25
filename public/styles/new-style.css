@@ -14,6 +14,9 @@
   --tech-font-color: #888888;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 body {
     display: flex;
     flex-direction: column;
@@ -36,6 +39,12 @@ header {
 section {
     margin: 150px 0 150px 0;
 }
+
+.portfolio>div {
+    margin-bottom: 70px;
+}
+
+
 .minime {
     align-self: center;
     cursor: pointer;
@@ -113,6 +122,8 @@ h2 {
 
 .project-anchor {
     cursor: pointer;
+    text-decoration: none;
+    color: var(--font-color);
 }
 
 .project-card {
@@ -132,10 +143,11 @@ h2 {
     box-shadow: 0 0 0 3px #FAFAF9, 0 0 0 5px var(--card-color);
 }
 
+/* TODO: go back to flex */
 .project-details {
     grid-column: 2;
     display: grid;
-    grid-template-rows: [date] 30% [title] 20% [desc] 10% [stack] 40%;
+    grid-template-rows: [date] 30% [title] 20% [desc] 20% [stack] 30%;
     padding: 30px 0 20px 0;
 }
 
